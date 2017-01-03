@@ -12,6 +12,7 @@
 		A566ED81CA8662E5CEECA572 /* Pods_WorldTip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AE5DA39479852ADC13BE57E /* Pods_WorldTip.framework */; };
 		BE5D8EB71E1B76FF0027B7DA /* ExchangeRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5D8EB61E1B76FF0027B7DA /* ExchangeRate.swift */; };
 		BE5D8EB91E1B7A350027B7DA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5D8EB81E1B7A350027B7DA /* Constants.swift */; };
+		BE5D8EBB1E1C30340027B7DA /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5D8EBA1E1C30340027B7DA /* SettingsVC.swift */; };
 		BEFBB87E1E048B1800E6D9AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFBB87D1E048B1800E6D9AA /* AppDelegate.swift */; };
 		BEFBB8831E048B1800E6D9AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEFBB8811E048B1800E6D9AA /* Main.storyboard */; };
 		BEFBB8851E048B1800E6D9AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEFBB8841E048B1800E6D9AA /* Assets.xcassets */; };
@@ -49,6 +50,7 @@
 		9CC75832A5C960199747A484 /* Pods-WorldTipUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorldTipUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WorldTipUITests/Pods-WorldTipUITests.release.xcconfig"; sourceTree = "<group>"; };
 		BE5D8EB61E1B76FF0027B7DA /* ExchangeRate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExchangeRate.swift; sourceTree = "<group>"; };
 		BE5D8EB81E1B7A350027B7DA /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		BE5D8EBA1E1C30340027B7DA /* SettingsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		BEC8FAA4103D925DA6403995 /* Pods-WorldTip.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorldTip.release.xcconfig"; path = "Pods/Target Support Files/Pods-WorldTip/Pods-WorldTip.release.xcconfig"; sourceTree = "<group>"; };
 		BEFBB87A1E048B1800E6D9AA /* WorldTip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorldTip.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEFBB87D1E048B1800E6D9AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				BEFBB8D51E049FFF00E6D9AA /* TipVC.swift */,
+				BE5D8EBA1E1C30340027B7DA /* SettingsVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -501,6 +504,7 @@
 				BEFBB8B21E0496F100E6D9AA /* Country.swift in Sources */,
 				BEFBB87E1E048B1800E6D9AA /* AppDelegate.swift in Sources */,
 				BE5D8EB91E1B7A350027B7DA /* Constants.swift in Sources */,
+				BE5D8EBB1E1C30340027B7DA /* SettingsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

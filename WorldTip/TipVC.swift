@@ -24,6 +24,7 @@ class TipVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     var currentCountryTip = [CountryTip]()
     var exchangeRates = [ExchangeRate]()
     var currentExchangeRate = [ExchangeRate]()
+    let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,28 +35,34 @@ class TipVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
         let c4 = Country(iso3: "GBR", countryName: "Great Britain")
         let c5 = Country(iso3: "RUS", countryName: "Russia")
         
+        let usa = [0.10, 0.15, 0.20]
+        let fra = [0.0]
+        let ger = [0.05, 0.075, 0.10]
+        let gbr = [0.05, 0.075, 0.10]
+        let rus = [0.05, 0.10, 0.15]
+        
         let ct1 = CountryTip(iso3: "USA",
-                             options: [0.15, 0.18, 0.20],
+                             options: usa,
                              defaultOption: 0.15,
                              currencySymbol: "$",
                              currencyIso3: "USD")
         let ct2 = CountryTip(iso3: "FRA",
-                             options: [0],
+                             options: fra,
                              defaultOption: 0,
                              currencySymbol: "€",
                              currencyIso3: "EUR")
         let ct3 = CountryTip(iso3: "GER",
-                             options: [0.05, 0.075, 0.10],
+                             options: ger,
                              defaultOption: 0.05,
                              currencySymbol: "€",
                              currencyIso3: "EUR")
         let ct4 = CountryTip(iso3: "GBR",
-                             options: [0.05, 0.075, 0.10],
+                             options: gbr,
                              defaultOption: 0.05,
                              currencySymbol: "£",
                              currencyIso3: "GBP")
         let ct5 = CountryTip(iso3: "RUS",
-                             options: [0.05, 0.10, 0.15],
+                             options: rus,
                              defaultOption: 0.10,
                              currencySymbol: "₽",
                              currencyIso3: "RUB")
@@ -81,6 +88,25 @@ class TipVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
         downloadExchangeRates {
             
         }
+        
+        defaults.set("USA", forKey: "country")
+        defaults.set(usa, forKey: "USA")
+        defaults.set(fra, forKey: "FRA")
+        defaults.set(ger, forKey: "GER")
+        defaults.set(gbr, forKey: "GBR")
+        defaults.set(rus, forKey: "RUS")
+        defaults.synchronize()
+        
+        billLbl.becomeFirstResponder()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        let country = defaults.string(forKey: "country")
+        let tipOptions = defaults.object(forKey: country!) as! [Double]
+        
+        updateSegments(newSegments: tipOptions)
+        tipSelector.selectedSegmentIndex = 0
         
         billLbl.becomeFirstResponder()
     }
@@ -130,14 +156,19 @@ class TipVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
-        let iso3 = country[row].iso3
-        currentCountryTip = countryTip.filter({$0.iso3.range(of: iso3) != nil})
+        let countryIso3 = country[row].iso3
+        currentCountryTip = countryTip.filter({$0.iso3.range(of: countryIso3) != nil})
         
         let currencyIso3 = currentCountryTip[0].currencyIso3
         currentExchangeRate = exchangeRates.filter({$0.currencyIso3.range(of: currencyIso3) != nil})
-            
-        updateSegments(newSegments: currentCountryTip[0].options)
+        
+        let tipOptions = defaults.object(forKey: countryIso3) as! [Double]
+        updateSegments(newSegments: tipOptions)
         tipSelector.selectedSegmentIndex = 0
+        
+        defaults.set(countryIso3, forKey: "country")
+        defaults.synchronize()
+        
         calculateTip(nil)
     }
     
@@ -173,7 +204,9 @@ class TipVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBAction func calculateTip(_ sender: AnyObject?) {
         
-        let tipPct = currentCountryTip[0].options[tipSelector.selectedSegmentIndex]
+        let countryIso3 = currentCountryTip[0].iso3
+        let tipOptions = defaults.object(forKey: countryIso3) as! [Double]
+        let tipPct = tipOptions[tipSelector.selectedSegmentIndex]
         let bill = Double(billLbl.text!) ?? 0
         let tip = currentCountryTip[0].calculate(bill: bill,
                                                  tipPct: tipPct)

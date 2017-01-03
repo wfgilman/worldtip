@@ -10,26 +10,59 @@ import UIKit
 
 class SettingsVC: UIViewController {
 
+    @IBOutlet weak var countryImg: UIImageView!
+    @IBOutlet weak var basicTxt: UITextField!
+    @IBOutlet weak var goodTxt: UITextField!
+    @IBOutlet weak var generousTxt: UITextField!
+    
+    let defaults = UserDefaults.standard
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-    }
+        let countryIso3 = defaults.string(forKey: "country")
+        let tipOptions = defaults.object(forKey: countryIso3!) as! [Double]
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        updateUI(countryIso3: countryIso3!, tipOptions: tipOptions)
+        
+        if countryIso3 != "FRA" {
+            
+            basicTxt.becomeFirstResponder()
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func updateUI(countryIso3: String, tipOptions: [Double]) {
+        
+        countryImg.image = UIImage(named: countryIso3)
+        
+        if countryIso3 != "FRA" {
+            
+            basicTxt.text = String(format: "%.1f%%", tipOptions[0] * 100)
+            goodTxt.text = String(format: "%.1f%%", tipOptions[1] * 100)
+            generousTxt.text = String(format: "%.1f%%", tipOptions[2] * 100)
+        } else {
+            
+            basicTxt.text = "N/A"
+            goodTxt.text = "N/A"
+            generousTxt.text = "N/A"
+        }
     }
-    */
+    
+    @IBAction func updateDefaults(_ sender: AnyObject?) {
+        
+        let countryIso3 = defaults.string(forKey: "country")
+        
+        if countryIso3 != "FRA" {
+            
+            let basic = Double(basicTxt.text!.replacingOccurrences(of: "%", with: ""))! / 100
+            let good = Double(goodTxt.text!.replacingOccurrences(of: "%", with: ""))! / 100
+            let generous = Double(generousTxt.text!.replacingOccurrences(of: "%", with: ""))! / 100
+            let newTipOptions = [basic, good, generous]
+            
+            defaults.set(newTipOptions, forKey: countryIso3!)
+            defaults.synchronize()
+        }
+    }
+
 
 }
