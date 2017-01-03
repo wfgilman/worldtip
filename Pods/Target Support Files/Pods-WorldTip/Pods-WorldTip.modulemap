@@ -1,0 +1,6 @@
+framework module Pods_WorldTip {
+  umbrella header "Pods-WorldTip-umbrella.h"
+
+  export *
+  module * { export * }
+}

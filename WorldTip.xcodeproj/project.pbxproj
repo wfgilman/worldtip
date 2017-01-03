@@ -7,13 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2355130E47FC972DCCB2065E /* Pods_WorldTipUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78E6DA58077471C9A9464DA7 /* Pods_WorldTipUITests.framework */; };
+		819F6B91CC7C7BF4D18612FB /* Pods_WorldTipTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB4CFC2E7AEE7F92179B5B10 /* Pods_WorldTipTests.framework */; };
+		A566ED81CA8662E5CEECA572 /* Pods_WorldTip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AE5DA39479852ADC13BE57E /* Pods_WorldTip.framework */; };
+		BE5D8EB71E1B76FF0027B7DA /* ExchangeRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5D8EB61E1B76FF0027B7DA /* ExchangeRate.swift */; };
+		BE5D8EB91E1B7A350027B7DA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5D8EB81E1B7A350027B7DA /* Constants.swift */; };
 		BEFBB87E1E048B1800E6D9AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFBB87D1E048B1800E6D9AA /* AppDelegate.swift */; };
-		BEFBB8801E048B1800E6D9AA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFBB87F1E048B1800E6D9AA /* ViewController.swift */; };
 		BEFBB8831E048B1800E6D9AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEFBB8811E048B1800E6D9AA /* Main.storyboard */; };
 		BEFBB8851E048B1800E6D9AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEFBB8841E048B1800E6D9AA /* Assets.xcassets */; };
 		BEFBB8881E048B1800E6D9AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEFBB8861E048B1800E6D9AA /* LaunchScreen.storyboard */; };
 		BEFBB8931E048B1800E6D9AA /* WorldTipTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFBB8921E048B1800E6D9AA /* WorldTipTests.swift */; };
 		BEFBB89E1E048B1800E6D9AA /* WorldTipUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFBB89D1E048B1800E6D9AA /* WorldTipUITests.swift */; };
+		BEFBB8AF1E048E2C00E6D9AA /* Mayan.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BEFBB8AE1E048E2C00E6D9AA /* Mayan.ttf */; };
+		BEFBB8B21E0496F100E6D9AA /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFBB8B11E0496F100E6D9AA /* Country.swift */; };
+		BEFBB8B41E0497FA00E6D9AA /* CountryTip.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFBB8B31E0497FA00E6D9AA /* CountryTip.swift */; };
+		BEFBB8D61E049FFF00E6D9AA /* TipVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFBB8D51E049FFF00E6D9AA /* TipVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,9 +42,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		35C146CBE3CE6EE255FA650B /* Pods-WorldTipTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorldTipTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WorldTipTests/Pods-WorldTipTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5AE5DA39479852ADC13BE57E /* Pods_WorldTip.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WorldTip.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F529081D5B8E152AFCDFC90 /* Pods-WorldTip.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorldTip.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WorldTip/Pods-WorldTip.debug.xcconfig"; sourceTree = "<group>"; };
+		78E6DA58077471C9A9464DA7 /* Pods_WorldTipUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WorldTipUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9CC75832A5C960199747A484 /* Pods-WorldTipUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorldTipUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WorldTipUITests/Pods-WorldTipUITests.release.xcconfig"; sourceTree = "<group>"; };
+		BE5D8EB61E1B76FF0027B7DA /* ExchangeRate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExchangeRate.swift; sourceTree = "<group>"; };
+		BE5D8EB81E1B7A350027B7DA /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		BEC8FAA4103D925DA6403995 /* Pods-WorldTip.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorldTip.release.xcconfig"; path = "Pods/Target Support Files/Pods-WorldTip/Pods-WorldTip.release.xcconfig"; sourceTree = "<group>"; };
 		BEFBB87A1E048B1800E6D9AA /* WorldTip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorldTip.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEFBB87D1E048B1800E6D9AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BEFBB87F1E048B1800E6D9AA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BEFBB8821E048B1800E6D9AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BEFBB8841E048B1800E6D9AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BEFBB8871E048B1800E6D9AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +62,13 @@
 		BEFBB8991E048B1800E6D9AA /* WorldTipUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WorldTipUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEFBB89D1E048B1800E6D9AA /* WorldTipUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldTipUITests.swift; sourceTree = "<group>"; };
 		BEFBB89F1E048B1800E6D9AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BEFBB8AE1E048E2C00E6D9AA /* Mayan.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Mayan.ttf; path = ../Mayan.ttf; sourceTree = "<group>"; };
+		BEFBB8B11E0496F100E6D9AA /* Country.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
+		BEFBB8B31E0497FA00E6D9AA /* CountryTip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryTip.swift; sourceTree = "<group>"; };
+		BEFBB8D51E049FFF00E6D9AA /* TipVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipVC.swift; sourceTree = "<group>"; };
+		DB4CFC2E7AEE7F92179B5B10 /* Pods_WorldTipTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WorldTipTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F6A4BCDD685147A7C0DBCFF5 /* Pods-WorldTipTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorldTipTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WorldTipTests/Pods-WorldTipTests.release.xcconfig"; sourceTree = "<group>"; };
+		FDD5E018051EF803D55D4CA8 /* Pods-WorldTipUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorldTipUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WorldTipUITests/Pods-WorldTipUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A566ED81CA8662E5CEECA572 /* Pods_WorldTip.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				819F6B91CC7C7BF4D18612FB /* Pods_WorldTipTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2355130E47FC972DCCB2065E /* Pods_WorldTipUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +106,8 @@
 				BEFBB8911E048B1800E6D9AA /* WorldTipTests */,
 				BEFBB89C1E048B1800E6D9AA /* WorldTipUITests */,
 				BEFBB87B1E048B1800E6D9AA /* Products */,
+				E5246999373BBE43FD21EFE4 /* Pods */,
+				CBB23E48DA50AE4E4592499C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,8 +124,11 @@
 		BEFBB87C1E048B1800E6D9AA /* WorldTip */ = {
 			isa = PBXGroup;
 			children = (
+				BEFBB8B01E048E3300E6D9AA /* Resources */,
+				BEFBB8AD1E048B6500E6D9AA /* Model */,
+				BEFBB8AC1E048B5E00E6D9AA /* View */,
+				BEFBB8AB1E048B4C00E6D9AA /* Controller */,
 				BEFBB87D1E048B1800E6D9AA /* AppDelegate.swift */,
-				BEFBB87F1E048B1800E6D9AA /* ViewController.swift */,
 				BEFBB8811E048B1800E6D9AA /* Main.storyboard */,
 				BEFBB8841E048B1800E6D9AA /* Assets.xcassets */,
 				BEFBB8861E048B1800E6D9AA /* LaunchScreen.storyboard */,
@@ -125,6 +155,64 @@
 			path = WorldTipUITests;
 			sourceTree = "<group>";
 		};
+		BEFBB8AB1E048B4C00E6D9AA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BEFBB8D51E049FFF00E6D9AA /* TipVC.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		BEFBB8AC1E048B5E00E6D9AA /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		BEFBB8AD1E048B6500E6D9AA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BEFBB8B11E0496F100E6D9AA /* Country.swift */,
+				BEFBB8B31E0497FA00E6D9AA /* CountryTip.swift */,
+				BE5D8EB61E1B76FF0027B7DA /* ExchangeRate.swift */,
+			);
+			name = Model;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		BEFBB8B01E048E3300E6D9AA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BEFBB8AE1E048E2C00E6D9AA /* Mayan.ttf */,
+				BE5D8EB81E1B7A350027B7DA /* Constants.swift */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		CBB23E48DA50AE4E4592499C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5AE5DA39479852ADC13BE57E /* Pods_WorldTip.framework */,
+				DB4CFC2E7AEE7F92179B5B10 /* Pods_WorldTipTests.framework */,
+				78E6DA58077471C9A9464DA7 /* Pods_WorldTipUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E5246999373BBE43FD21EFE4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5F529081D5B8E152AFCDFC90 /* Pods-WorldTip.debug.xcconfig */,
+				BEC8FAA4103D925DA6403995 /* Pods-WorldTip.release.xcconfig */,
+				35C146CBE3CE6EE255FA650B /* Pods-WorldTipTests.debug.xcconfig */,
+				F6A4BCDD685147A7C0DBCFF5 /* Pods-WorldTipTests.release.xcconfig */,
+				FDD5E018051EF803D55D4CA8 /* Pods-WorldTipUITests.debug.xcconfig */,
+				9CC75832A5C960199747A484 /* Pods-WorldTipUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +220,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BEFBB8A21E048B1800E6D9AA /* Build configuration list for PBXNativeTarget "WorldTip" */;
 			buildPhases = (
+				04C19E4547919939F010C13B /* [CP] Check Pods Manifest.lock */,
 				BEFBB8761E048B1800E6D9AA /* Sources */,
 				BEFBB8771E048B1800E6D9AA /* Frameworks */,
 				BEFBB8781E048B1800E6D9AA /* Resources */,
+				9D6DAF75765FD0FF87736898 /* [CP] Embed Pods Frameworks */,
+				F48C177038D4A55F3E7C0EE9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -149,9 +240,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BEFBB8A51E048B1800E6D9AA /* Build configuration list for PBXNativeTarget "WorldTipTests" */;
 			buildPhases = (
+				F70D556047FCAF3A993672ED /* [CP] Check Pods Manifest.lock */,
 				BEFBB88A1E048B1800E6D9AA /* Sources */,
 				BEFBB88B1E048B1800E6D9AA /* Frameworks */,
 				BEFBB88C1E048B1800E6D9AA /* Resources */,
+				1F1AB9EEFB7D6B2833AAB540 /* [CP] Embed Pods Frameworks */,
+				CA89010B5805508E75E9BB90 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -167,9 +261,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BEFBB8A81E048B1800E6D9AA /* Build configuration list for PBXNativeTarget "WorldTipUITests" */;
 			buildPhases = (
+				CB1CD4601470C0031ADDB5A7 /* [CP] Check Pods Manifest.lock */,
 				BEFBB8951E048B1800E6D9AA /* Sources */,
 				BEFBB8961E048B1800E6D9AA /* Frameworks */,
 				BEFBB8971E048B1800E6D9AA /* Resources */,
+				15EC13577483B244664B01E4 /* [CP] Embed Pods Frameworks */,
+				5B626DB55BD9C1A976E4B356 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -235,6 +332,7 @@
 				BEFBB8881E048B1800E6D9AA /* LaunchScreen.storyboard in Resources */,
 				BEFBB8851E048B1800E6D9AA /* Assets.xcassets in Resources */,
 				BEFBB8831E048B1800E6D9AA /* Main.storyboard in Resources */,
+				BEFBB8AF1E048E2C00E6D9AA /* Mayan.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,13 +352,155 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		04C19E4547919939F010C13B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		15EC13577483B244664B01E4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WorldTipUITests/Pods-WorldTipUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1F1AB9EEFB7D6B2833AAB540 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WorldTipTests/Pods-WorldTipTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5B626DB55BD9C1A976E4B356 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WorldTipUITests/Pods-WorldTipUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9D6DAF75765FD0FF87736898 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WorldTip/Pods-WorldTip-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CA89010B5805508E75E9BB90 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WorldTipTests/Pods-WorldTipTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CB1CD4601470C0031ADDB5A7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F48C177038D4A55F3E7C0EE9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WorldTip/Pods-WorldTip-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F70D556047FCAF3A993672ED /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BEFBB8761E048B1800E6D9AA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BEFBB8801E048B1800E6D9AA /* ViewController.swift in Sources */,
+				BEFBB8D61E049FFF00E6D9AA /* TipVC.swift in Sources */,
+				BE5D8EB71E1B76FF0027B7DA /* ExchangeRate.swift in Sources */,
+				BEFBB8B41E0497FA00E6D9AA /* CountryTip.swift in Sources */,
+				BEFBB8B21E0496F100E6D9AA /* Country.swift in Sources */,
 				BEFBB87E1E048B1800E6D9AA /* AppDelegate.swift in Sources */,
+				BE5D8EB91E1B7A350027B7DA /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,6 +650,7 @@
 		};
 		BEFBB8A31E048B1800E6D9AA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5F529081D5B8E152AFCDFC90 /* Pods-WorldTip.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = WorldTip/Info.plist;
@@ -422,6 +663,7 @@
 		};
 		BEFBB8A41E048B1800E6D9AA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEC8FAA4103D925DA6403995 /* Pods-WorldTip.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = WorldTip/Info.plist;
@@ -434,6 +676,7 @@
 		};
 		BEFBB8A61E048B1800E6D9AA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 35C146CBE3CE6EE255FA650B /* Pods-WorldTipTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -448,6 +691,7 @@
 		};
 		BEFBB8A71E048B1800E6D9AA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F6A4BCDD685147A7C0DBCFF5 /* Pods-WorldTipTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -462,6 +706,7 @@
 		};
 		BEFBB8A91E048B1800E6D9AA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FDD5E018051EF803D55D4CA8 /* Pods-WorldTipUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = WorldTipUITests/Info.plist;
@@ -475,6 +720,7 @@
 		};
 		BEFBB8AA1E048B1800E6D9AA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9CC75832A5C960199747A484 /* Pods-WorldTipUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = WorldTipUITests/Info.plist;
@@ -505,6 +751,7 @@
 				BEFBB8A41E048B1800E6D9AA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BEFBB8A51E048B1800E6D9AA /* Build configuration list for PBXNativeTarget "WorldTipTests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +760,7 @@
 				BEFBB8A71E048B1800E6D9AA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BEFBB8A81E048B1800E6D9AA /* Build configuration list for PBXNativeTarget "WorldTipUITests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +769,7 @@
 				BEFBB8AA1E048B1800E6D9AA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
