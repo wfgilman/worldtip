@@ -90,7 +90,7 @@ class TipVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
         let exchangeRateURL = URL(string: CURRENT_EXCHANGE_RATES)!
         
         Alamofire.request(exchangeRateURL).responseJSON { response in
-            // print("\(exchangeRateURL)")
+
             let result = response.result
          
             if let dict = result.value as? Dictionary<String, AnyObject> {
@@ -106,7 +106,7 @@ class TipVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
                             let exchangeRate = ExchangeRate(currencyIso3: currencyIso3,
                                                             rateToUSD: xchange)
                             self.exchangeRates.append(exchangeRate)
-                            print("\(currencyIso3):\(xchange)")
+                            // print("\(currencyIso3):\(xchange)")
                         }
                     }
                 }
@@ -189,7 +189,9 @@ class TipVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
             
         } else {
             
-            totalUSDLbl.text = String(format: "$%.2f", total / currentExchangeRate[0].rateToUSD)
+            let rate = currentExchangeRate[0].rateToUSD
+            totalUSDLbl.text = String(format: "$%.2f", total / rate)
+            
         }
     }
     
