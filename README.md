@@ -1,4 +1,4 @@
-# Pre-work - WorldTop
+# Pre-work - WorldTip
 
 WorldTip is a tip calculator application for iOS.
 
@@ -25,8 +25,8 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
-- Country selector with default customary tipping options
-- Pulls in current exchange rates to convert the bill to USD
+- Country selector with default customary tipping options (credit: [TripAdvisor](https://www.tripadvisor.com/))
+- Pulls in current exchange rates to convert the bill to USD (credit: [Fixer.io](http://fixer.io/))
 
 ## Video Walkthrough
 
