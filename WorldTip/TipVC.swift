@@ -25,6 +25,7 @@ class TipVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     var exchangeRates = [ExchangeRate]()
     var currentExchangeRate = [ExchangeRate]()
     let defaults = UserDefaults.standard
+    var numberFormatter = NumberFormatter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -96,6 +97,10 @@ class TipVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
         defaults.set(gbr, forKey: "GBR")
         defaults.set(rus, forKey: "RUS")
         defaults.synchronize()
+        
+        numberFormatter.numberStyle = .decimal
+        numberFormatter.minimumFractionDigits = 2
+        numberFormatter.maximumFractionDigits = 2
         
         billLbl.becomeFirstResponder()
     }
@@ -213,17 +218,17 @@ class TipVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
         let total = bill + tip
         let symbol = currentCountryTip[0].currencySymbol
         
-        tipLbl.text = String(format: "\(symbol)%.2f", tip)
-        totalLbl.text = String(format: "\(symbol)%.2f", total)
+        tipLbl.text = "\(symbol)" + numberFormatter.string(from: NSDecimalNumber(decimal: Decimal(tip)))!
+        totalLbl.text = "\(symbol)" + numberFormatter.string(from: NSDecimalNumber(decimal: Decimal(total)))!
         
         if currentCountryTip[0].iso3 == "USA" {
             
-            totalUSDLbl.text = String(format: "\(symbol)%.2f", total)
+            totalUSDLbl.text = "\(symbol)" + numberFormatter.string(from: NSDecimalNumber(decimal: Decimal(total)))!
             
         } else {
             
             let rate = currentExchangeRate[0].rateToUSD
-            totalUSDLbl.text = String(format: "$%.2f", total / rate)
+            totalUSDLbl.text = "$" + numberFormatter.string(from: NSDecimalNumber(decimal: Decimal(total / rate)))!
             
         }
     }
