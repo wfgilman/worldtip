@@ -12,7 +12,7 @@ class CountryTip {
     
     var _iso3: String!
     var _options: [Double]!
-    var _defaultOption: Double!
+    var _defaultOption: Int!
     var _currencySymbol: String!
     var _currencyIso3: String!
     
@@ -24,7 +24,7 @@ class CountryTip {
         return _options
     }
     
-    var defaultOption: Double {
+    var defaultOption: Int {
         return _defaultOption
     }
     
@@ -36,7 +36,7 @@ class CountryTip {
         return _currencyIso3
     }
     
-    init(iso3: String, options: [Double], defaultOption: Double, currencySymbol: String, currencyIso3: String!) {
+    init(iso3: String, options: [Double], defaultOption: Int, currencySymbol: String, currencyIso3: String!) {
         _iso3 = iso3
         _options = options
         _defaultOption = defaultOption

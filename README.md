@@ -4,10 +4,10 @@ WorldTip is a tip calculator application for iOS.
 
 Submitted by: William Gilman
 
-Time spent: 12 hours spent in total
+Time spent: 20 hours spent in total
 
 ## Sceenshot
-<img src='http://i.imgur.com/Rs9jQhq.png' title='Swip Main' width='' alt='Swip Main' />
+<img src='http://i.imgur.com/EpjWnOf.png' title='Swip Main' width='' alt='Swip Main' />
 
 ## User Stories
 
@@ -27,12 +27,13 @@ The following **additional** features are implemented:
 
 - Country selector with default customary tipping options (credit: [TripAdvisor](https://www.tripadvisor.com/))
 - Pulls in current exchange rates to convert the bill to USD (credit: [Fixer.io](http://fixer.io/))
+- Tooltip for information about tip, total and USD total
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/0BwzPcd.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://i.imgur.com/1RGTBVr.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 

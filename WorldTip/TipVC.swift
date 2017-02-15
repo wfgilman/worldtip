@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import AMPopTip
 
 class TipVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
@@ -16,8 +17,8 @@ class TipVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     @IBOutlet weak var billLbl: UITextField!
     @IBOutlet weak var tipLbl: UILabel!
     @IBOutlet weak var totalLbl: UILabel!
-    @IBOutlet weak var noteLbl: UILabel!
     @IBOutlet weak var totalUSDLbl: UILabel!
+    @IBOutlet weak var resultsStackView: UIStackView!
     
     var country = [Country]()
     var countryTip = [CountryTip]()
@@ -27,6 +28,8 @@ class TipVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     let defaults = UserDefaults.standard
     var numberFormatter = NumberFormatter()
     
+    var popTip: AMPopTip?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,17 +37,19 @@ class TipVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
         let c2 = Country(iso3: "FRA", countryName: "France")
         let c3 = Country(iso3: "GER", countryName: "Germany")
         let c4 = Country(iso3: "GBR", countryName: "Great Britain")
-        let c5 = Country(iso3: "RUS", countryName: "Russia")
+        let c5 = Country(iso3: "MEX", countryName: "Mexico")
+        let c6 = Country(iso3: "RUS", countryName: "Russia")
         
         let usa = [0.10, 0.15, 0.20]
         let fra = [0.0]
         let ger = [0.05, 0.075, 0.10]
         let gbr = [0.05, 0.075, 0.10]
         let rus = [0.05, 0.10, 0.15]
+        let mex = [0.10, 0.15, 0.20]
         
         let ct1 = CountryTip(iso3: "USA",
                              options: usa,
-                             defaultOption: 0.15,
+                             defaultOption: 1,
                              currencySymbol: "$",
                              currencyIso3: "USD")
         let ct2 = CountryTip(iso3: "FRA",
@@ -54,17 +59,22 @@ class TipVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
                              currencyIso3: "EUR")
         let ct3 = CountryTip(iso3: "GER",
                              options: ger,
-                             defaultOption: 0.05,
+                             defaultOption: 0,
                              currencySymbol: "€",
                              currencyIso3: "EUR")
         let ct4 = CountryTip(iso3: "GBR",
                              options: gbr,
-                             defaultOption: 0.05,
+                             defaultOption: 0,
                              currencySymbol: "£",
                              currencyIso3: "GBP")
-        let ct5 = CountryTip(iso3: "RUS",
+        let ct5 = CountryTip(iso3: "MEX",
+                             options: mex,
+                             defaultOption: 1,
+                             currencySymbol: "$",
+                             currencyIso3: "MXN")
+        let ct6 = CountryTip(iso3: "RUS",
                              options: rus,
-                             defaultOption: 0.10,
+                             defaultOption: 0,
                              currencySymbol: "₽",
                              currencyIso3: "RUB")
         
@@ -73,18 +83,20 @@ class TipVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
         country.append(c3)
         country.append(c4)
         country.append(c5)
+        country.append(c6)
         
         countryTip.append(ct1)
         countryTip.append(ct2)
         countryTip.append(ct3)
         countryTip.append(ct4)
         countryTip.append(ct5)
+        countryTip.append(ct6)
         
         countryPicker.delegate = self
         countryPicker.dataSource = self
         
         currentCountryTip = [countryTip.first!]
-        updateSegments(newSegments: currentCountryTip[0].options)
+        updateSegments(newSegments: currentCountryTip[0].options, countryIso3: currentCountryTip[0].iso3)
         
         downloadExchangeRates {
             
@@ -95,6 +107,7 @@ class TipVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
         defaults.set(fra, forKey: "FRA")
         defaults.set(ger, forKey: "GER")
         defaults.set(gbr, forKey: "GBR")
+        defaults.set(mex, forKey: "MEX")
         defaults.set(rus, forKey: "RUS")
         defaults.synchronize()
         
@@ -103,15 +116,37 @@ class TipVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
         numberFormatter.maximumFractionDigits = 2
         
         billLbl.becomeFirstResponder()
+        
+        self.popTip = AMPopTip()
+        self.popTip?.shouldDismissOnTap = true
+        self.popTip?.edgeMargin = 5
+        self.popTip?.offset = 0
+        self.popTip?.edgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+        self.popTip?.popoverColor = UIColor.darkGray
+        self.popTip?.alpha = 1
+        
+        let tipTap = UITapGestureRecognizer(target: self, action: #selector(TipVC.tipTapFunction))
+        tipLbl.isUserInteractionEnabled = true
+        tipLbl.addGestureRecognizer(tipTap)
+        
+        let totalTap = UITapGestureRecognizer(target: self, action: #selector(TipVC.totalTapFunction))
+        totalLbl.isUserInteractionEnabled = true
+        totalLbl.addGestureRecognizer(totalTap)
+        
+        let totalUSDTap = UITapGestureRecognizer(target: self, action: #selector(TipVC.totalUSDTapFunction))
+        totalUSDLbl.isUserInteractionEnabled = true
+        totalUSDLbl.addGestureRecognizer(totalUSDTap)
+        
+        tipLbl.text = "\(currentCountryTip[0].currencySymbol)"
+        totalLbl.text = "\(currentCountryTip[0].currencySymbol)"
     }
     
     override func viewDidAppear(_ animated: Bool) {
         
         let country = defaults.string(forKey: "country")
         let tipOptions = defaults.object(forKey: country!) as! [Double]
-        
-        updateSegments(newSegments: tipOptions)
-        tipSelector.selectedSegmentIndex = 0
+       
+        updateSegments(newSegments: tipOptions, countryIso3: country!)
         
         billLbl.becomeFirstResponder()
     }
@@ -168,8 +203,8 @@ class TipVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
         currentExchangeRate = exchangeRates.filter({$0.currencyIso3.range(of: currencyIso3) != nil})
         
         let tipOptions = defaults.object(forKey: countryIso3) as! [Double]
-        updateSegments(newSegments: tipOptions)
-        tipSelector.selectedSegmentIndex = 0
+        
+        updateSegments(newSegments: tipOptions, countryIso3: countryIso3)
         
         defaults.set(countryIso3, forKey: "country")
         defaults.synchronize()
@@ -177,7 +212,7 @@ class TipVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
         calculateTip(nil)
     }
     
-    func updateSegments(newSegments: [Double]) {
+    func updateSegments(newSegments: [Double], countryIso3: String) {
         // Remove existing segments
         for i in 0..<(tipSelector.numberOfSegments - 1) {
 
@@ -196,15 +231,10 @@ class TipVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
         // Remove last segment
         tipSelector.removeSegment(at: (tipSelector.numberOfSegments - 1), animated: false)
         
-        tipSelector.selectedSegmentIndex = 0
+        let currentCountryTip = countryTip.filter({$0.iso3.range(of: countryIso3) != nil})
+        let defaultOption = currentCountryTip[0].defaultOption
         
-        if currentCountryTip[0].iso3 == "FRA" {
-            
-            noteLbl.text = "Included (Service Compris)"
-        } else {
-            
-            noteLbl.text = ""
-        }
+        tipSelector.selectedSegmentIndex = defaultOption
     }
     
     @IBAction func calculateTip(_ sender: AnyObject?) {
@@ -218,18 +248,57 @@ class TipVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
         let total = bill + tip
         let symbol = currentCountryTip[0].currencySymbol
         
-        tipLbl.text = "\(symbol)" + numberFormatter.string(from: NSDecimalNumber(decimal: Decimal(tip)))!
-        totalLbl.text = "\(symbol)" + numberFormatter.string(from: NSDecimalNumber(decimal: Decimal(total)))!
+        tipLbl.text = currencyText(number: tip, currencySymbol: symbol)
+        totalLbl.text = currencyText(number: total, currencySymbol: symbol)
         
         if currentCountryTip[0].iso3 == "USA" {
             
-            totalUSDLbl.text = "\(symbol)" + numberFormatter.string(from: NSDecimalNumber(decimal: Decimal(total)))!
+            totalUSDLbl.text = currencyText(number: total, currencySymbol: symbol)
             
         } else {
             
             let rate = currentExchangeRate[0].rateToUSD
-            totalUSDLbl.text = "$" + numberFormatter.string(from: NSDecimalNumber(decimal: Decimal(total / rate)))!
+            totalUSDLbl.text = currencyText(number: total / rate, currencySymbol: "$")
             
+        }
+    }
+    
+    func currencyText(number: Double, currencySymbol: String) -> String {
+        
+        if number > Double(1000) {
+         
+            numberFormatter.minimumFractionDigits = 0
+            numberFormatter.maximumFractionDigits = 0
+            
+            return "\(currencySymbol)" + numberFormatter.string(from: NSDecimalNumber(decimal: Decimal(number)))!
+            
+        } else {
+            
+            numberFormatter.minimumFractionDigits = 2
+            numberFormatter.maximumFractionDigits = 2
+            
+            return "\(currencySymbol)" + numberFormatter.string(from: NSDecimalNumber(decimal: Decimal(number)))!
+        }
+    }
+    
+    func tipTapFunction(sender: UIGestureRecognizer) {
+        self.popTip?.showText("Tip in local currency", direction: AMPopTipDirection.down, maxWidth: 100, in: self.resultsStackView, fromFrame: self.tipLbl.frame)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            self.popTip?.hide()
+        }
+    }
+    
+    func totalTapFunction(sender: UIGestureRecognizer) {
+        self.popTip?.showText("Bill Total in local currency", direction: AMPopTipDirection.down, maxWidth: 100, in: self.resultsStackView, fromFrame: self.totalLbl.frame)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            self.popTip?.hide()
+        }
+    }
+    
+    func totalUSDTapFunction(sender: UIGestureRecognizer) {
+        self.popTip?.showText("Bill Total in USD", direction: AMPopTipDirection.down, maxWidth: 100, in: self.resultsStackView, fromFrame: self.totalUSDLbl.frame)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            self.popTip?.hide()
         }
     }
     

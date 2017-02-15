@@ -6,6 +6,7 @@ target 'WorldTip' do
   use_frameworks!
 
   pod 'Alamofire', '~> 4.0'
+  pod 'AMPopTip'
 
   target 'WorldTipTests' do
     inherit! :search_paths
