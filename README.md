@@ -27,7 +27,8 @@ The following **additional** features are implemented:
 
 - Country selector with default customary tipping options (credit: [TripAdvisor](https://www.tripadvisor.com/))
 - Pulls in current exchange rates to convert the bill to USD (credit: [Fixer.io](http://fixer.io/))
-- Tooltip for information about tip, total and USD total
+- HTTP client for API calls (credit: [Alamofire](https://github.com/Alamofire/Alamofire))
+- Tooltip for information about tip, total and USD total (credit: [AMPopTip](https://github.com/andreamazz/AMPopTip))
 
 ## Video Walkthrough
 
