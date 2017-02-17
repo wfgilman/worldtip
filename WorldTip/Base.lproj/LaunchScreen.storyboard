@@ -26,12 +26,12 @@
                                 <rect key="frame" x="33" y="160" width="309" height="228"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WorldTip" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zt4-Dk-hXO">
-                                <rect key="frame" x="108" y="393.5" width="159.5" height="40"/>
+                                <rect key="frame" x="104.5" y="393.5" width="167" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="oLK-Te-68e"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="qH3-cs-u1c"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="40"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="40"/>
                                 <color key="textColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>

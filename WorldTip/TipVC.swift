@@ -12,6 +12,7 @@ import AMPopTip
 
 class TipVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
+    @IBOutlet weak var backgroundImg: UIImageView!
     @IBOutlet weak var countryPicker: UIPickerView!
     @IBOutlet weak var tipSelector: UISegmentedControl!
     @IBOutlet weak var billLbl: UITextField!
@@ -204,6 +205,7 @@ class TipVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
         
         let tipOptions = defaults.object(forKey: countryIso3) as! [Double]
         
+        backgroundImg.image = UIImage(named: countryIso3)
         updateSegments(newSegments: tipOptions, countryIso3: countryIso3)
         
         defaults.set(countryIso3, forKey: "country")
@@ -246,8 +248,7 @@ class TipVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
         let tipOptions = defaults.object(forKey: countryIso3) as! [Double]
         let tipPct = tipOptions[tipSelector.selectedSegmentIndex]
         let bill = deformatBill(formattedBill: billLbl.text!, currencySymbol: symbol)
-        let tip = currentCountryTip[0].calculate(bill: bill,
-                                                 tipPct: tipPct)
+        let tip = currentCountryTip[0].calculate(bill: bill, tipPct: tipPct)
         let total = bill + tip
         
         tipLbl.text = currencyText(number: tip, currencySymbol: symbol)

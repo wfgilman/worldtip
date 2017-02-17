@@ -14,6 +14,8 @@ class SettingsVC: UIViewController {
     @IBOutlet weak var basicTxt: UITextField!
     @IBOutlet weak var goodTxt: UITextField!
     @IBOutlet weak var generousTxt: UITextField!
+    @IBOutlet weak var messageLbl: UILabel!
+    @IBOutlet weak var defaultsStackView: UIStackView!
     
     let defaults = UserDefaults.standard
     
@@ -25,10 +27,7 @@ class SettingsVC: UIViewController {
 
         updateUI(countryIso3: countryIso3!, tipOptions: tipOptions)
         
-        if countryIso3 != "FRA" {
-            
-            basicTxt.becomeFirstResponder()
-        }
+        basicTxt.becomeFirstResponder()
     }
     
     func updateUI(countryIso3: String, tipOptions: [Double]) {
@@ -37,14 +36,15 @@ class SettingsVC: UIViewController {
         
         if countryIso3 != "FRA" {
             
+            messageLbl.isHidden = true
+            defaultsStackView.isHidden = false
             basicTxt.text = String(format: "%.1f%%", tipOptions[0] * 100)
             goodTxt.text = String(format: "%.1f%%", tipOptions[1] * 100)
             generousTxt.text = String(format: "%.1f%%", tipOptions[2] * 100)
         } else {
             
-            basicTxt.text = "N/A"
-            goodTxt.text = "N/A"
-            generousTxt.text = "N/A"
+            messageLbl.isHidden = false
+            defaultsStackView.isHidden = true
         }
     }
     
@@ -54,15 +54,21 @@ class SettingsVC: UIViewController {
         
         if countryIso3 != "FRA" {
             
-            let basic = Double(basicTxt.text!.replacingOccurrences(of: "%", with: ""))! / 100
-            let good = Double(goodTxt.text!.replacingOccurrences(of: "%", with: ""))! / 100
-            let generous = Double(generousTxt.text!.replacingOccurrences(of: "%", with: ""))! / 100
+            let basic = deformatTipPct(formattedTipPct: basicTxt.text!)
+            let good = deformatTipPct(formattedTipPct: goodTxt.text!)
+            let generous = deformatTipPct(formattedTipPct: generousTxt.text!)
             let newTipOptions = [basic, good, generous]
             
             defaults.set(newTipOptions, forKey: countryIso3!)
             defaults.synchronize()
         }
     }
-
+    
+    func deformatTipPct(formattedTipPct: String) -> Double {
+        
+        let deformattedTipPct = Double(formattedTipPct.replacingOccurrences(of: "%", with: ""))! / 100
+        
+        return deformattedTipPct
+    }
 
 }

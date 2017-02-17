@@ -4,10 +4,10 @@ WorldTip is a tip calculator application for iOS.
 
 Submitted by: William Gilman
 
-Time spent: 20 hours spent in total
+Time spent: 23 hours spent in total
 
 ## Sceenshot
-<img src='http://i.imgur.com/EpjWnOf.png' title='Swip Main' width='' alt='Swip Main' />
+<img src='http://i.imgur.com/NV9m4Jq.png' title='Swip Main' width='' alt='Swip Main' />
 
 ## User Stories
 
@@ -29,12 +29,14 @@ The following **additional** features are implemented:
 - Pulls in current exchange rates to convert the bill to USD (credit: [Fixer.io](http://fixer.io/))
 - HTTP client for API calls (credit: [Alamofire](https://github.com/Alamofire/Alamofire))
 - Tooltip for information about tip, total and USD total (credit: [AMPopTip](https://github.com/andreamazz/AMPopTip))
+- Bill inputs from right to left always with correct currency symbol (credit: [SO Post](http://stackoverflow.com/questions/29782982/how-to-input-currency-format-on-a-text-field-from-right-to-left-using-swift))
+- Background image updates to flag of the country currently selected
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/1RGTBVr.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://i.imgur.com/YcyKvRs.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
