@@ -239,14 +239,16 @@ class TipVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBAction func calculateTip(_ sender: AnyObject?) {
         
+        myTextFieldDidChange(billLbl)
+        
         let countryIso3 = currentCountryTip[0].iso3
+        let symbol = currentCountryTip[0].currencySymbol
         let tipOptions = defaults.object(forKey: countryIso3) as! [Double]
         let tipPct = tipOptions[tipSelector.selectedSegmentIndex]
-        let bill = Double(billLbl.text!) ?? 0
+        let bill = deformatBill(formattedBill: billLbl.text!, currencySymbol: symbol)
         let tip = currentCountryTip[0].calculate(bill: bill,
                                                  tipPct: tipPct)
         let total = bill + tip
-        let symbol = currentCountryTip[0].currencySymbol
         
         tipLbl.text = currencyText(number: tip, currencySymbol: symbol)
         totalLbl.text = currencyText(number: total, currencySymbol: symbol)
@@ -261,6 +263,16 @@ class TipVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
             totalUSDLbl.text = currencyText(number: total / rate, currencySymbol: "$")
             
         }
+        
+        billLbl.placeholder = symbol
+    }
+    
+    func deformatBill(formattedBill: String, currencySymbol: String) -> Double {
+     
+        let deformatCurrencySymbol = formattedBill.replacingOccurrences(of: currencySymbol, with: "")
+        let deformattedBill = deformatCurrencySymbol.replacingOccurrences(of: ",", with: "")
+        
+        return Double(deformattedBill) ?? 0
     }
     
     func currencyText(number: Double, currencySymbol: String) -> String {
@@ -281,24 +293,33 @@ class TipVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
         }
     }
     
-    func tipTapFunction(sender: UIGestureRecognizer) {
+   func tipTapFunction(sender: UIGestureRecognizer) {
         self.popTip?.showText("Tip in local currency", direction: AMPopTipDirection.down, maxWidth: 100, in: self.resultsStackView, fromFrame: self.tipLbl.frame)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            self.popTip?.hide()
-        }
+        dismissPopUp(seconds: 1.0)
     }
     
     func totalTapFunction(sender: UIGestureRecognizer) {
         self.popTip?.showText("Bill Total in local currency", direction: AMPopTipDirection.down, maxWidth: 100, in: self.resultsStackView, fromFrame: self.totalLbl.frame)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            self.popTip?.hide()
-        }
+        dismissPopUp(seconds: 1.0)
     }
     
     func totalUSDTapFunction(sender: UIGestureRecognizer) {
         self.popTip?.showText("Bill Total in USD", direction: AMPopTipDirection.down, maxWidth: 100, in: self.resultsStackView, fromFrame: self.totalUSDLbl.frame)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+        dismissPopUp(seconds: 1.0)
+    }
+    
+    func dismissPopUp(seconds: Double) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
             self.popTip?.hide()
+        }
+    }
+    
+    func myTextFieldDidChange(_ textField: UITextField) {
+        
+        let symbol = currentCountryTip[0].currencySymbol
+        
+        if let billString = textField.text?.currencyInputFormatting(symbol: symbol) {
+            textField.text = billString
         }
     }
     

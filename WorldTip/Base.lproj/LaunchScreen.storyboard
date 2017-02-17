@@ -25,8 +25,8 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="world-bg" translatesAutoresizingMaskIntoConstraints="NO" id="1O8-V2-WWi">
                                 <rect key="frame" x="33" y="160" width="309" height="228"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="World Tip" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zt4-Dk-hXO">
-                                <rect key="frame" x="102.5" y="393.5" width="170.5" height="40"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WorldTip" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zt4-Dk-hXO">
+                                <rect key="frame" x="108" y="393.5" width="159.5" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="oLK-Te-68e"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="qH3-cs-u1c"/>

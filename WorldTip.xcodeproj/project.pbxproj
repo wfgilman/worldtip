@@ -10,6 +10,7 @@
 		2355130E47FC972DCCB2065E /* Pods_WorldTipUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78E6DA58077471C9A9464DA7 /* Pods_WorldTipUITests.framework */; };
 		819F6B91CC7C7BF4D18612FB /* Pods_WorldTipTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB4CFC2E7AEE7F92179B5B10 /* Pods_WorldTipTests.framework */; };
 		A566ED81CA8662E5CEECA572 /* Pods_WorldTip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AE5DA39479852ADC13BE57E /* Pods_WorldTip.framework */; };
+		BE2A66501E56C7160082F271 /* StringExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2A664F1E56C7160082F271 /* StringExtentions.swift */; };
 		BE5D8EB71E1B76FF0027B7DA /* ExchangeRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5D8EB61E1B76FF0027B7DA /* ExchangeRate.swift */; };
 		BE5D8EB91E1B7A350027B7DA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5D8EB81E1B7A350027B7DA /* Constants.swift */; };
 		BE5D8EBB1E1C30340027B7DA /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5D8EBA1E1C30340027B7DA /* SettingsVC.swift */; };
@@ -49,6 +50,7 @@
 		78E6DA58077471C9A9464DA7 /* Pods_WorldTipUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WorldTipUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CC75832A5C960199747A484 /* Pods-WorldTipUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorldTipUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WorldTipUITests/Pods-WorldTipUITests.release.xcconfig"; sourceTree = "<group>"; };
 		BE0CA0C31E53C47500518717 /* WorldTip-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WorldTip-Bridging-Header.h"; sourceTree = "<group>"; };
+		BE2A664F1E56C7160082F271 /* StringExtentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtentions.swift; sourceTree = "<group>"; };
 		BE5D8EB61E1B76FF0027B7DA /* ExchangeRate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExchangeRate.swift; sourceTree = "<group>"; };
 		BE5D8EB81E1B7A350027B7DA /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BE5D8EBA1E1C30340027B7DA /* SettingsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 			children = (
 				BEFBB8AE1E048E2C00E6D9AA /* Mayan.ttf */,
 				BE5D8EB81E1B7A350027B7DA /* Constants.swift */,
+				BE2A664F1E56C7160082F271 /* StringExtentions.swift */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -502,6 +505,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BEFBB8D61E049FFF00E6D9AA /* TipVC.swift in Sources */,
+				BE2A66501E56C7160082F271 /* StringExtentions.swift in Sources */,
 				BE5D8EB71E1B76FF0027B7DA /* ExchangeRate.swift in Sources */,
 				BEFBB8B41E0497FA00E6D9AA /* CountryTip.swift in Sources */,
 				BEFBB8B21E0496F100E6D9AA /* Country.swift in Sources */,
