@@ -4,7 +4,7 @@ WorldTip is a tip calculator application for iOS.
 
 Submitted by: William Gilman
 
-Time spent: 23 hours spent in total
+Time spent: 24.5 hours spent in total
 
 ## Sceenshot
 <img src='http://i.imgur.com/NV9m4Jq.png' title='Swip Main' width='' alt='Swip Main' />
