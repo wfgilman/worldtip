@@ -33,7 +33,7 @@ class TipVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         let c1 = Country(iso3: "USA", countryName: "United States")
         let c2 = Country(iso3: "FRA", countryName: "France")
         let c3 = Country(iso3: "GER", countryName: "Germany")
@@ -116,8 +116,6 @@ class TipVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
         numberFormatter.minimumFractionDigits = 2
         numberFormatter.maximumFractionDigits = 2
         
-        billLbl.becomeFirstResponder()
-        
         self.popTip = AMPopTip()
         self.popTip?.shouldDismissOnTap = true
         self.popTip?.edgeMargin = 5
@@ -140,13 +138,17 @@ class TipVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
         
         tipLbl.text = "\(currentCountryTip[0].currencySymbol)"
         totalLbl.text = "\(currentCountryTip[0].currencySymbol)"
+        
+        billLbl.becomeFirstResponder()
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        print("View is appearing")
         
         let country = defaults.string(forKey: "country")
         let tipOptions = defaults.object(forKey: country!) as! [Double]
        
+        backgroundImg.image = UIImage(named: country!)
         updateSegments(newSegments: tipOptions, countryIso3: country!)
         
         billLbl.becomeFirstResponder()

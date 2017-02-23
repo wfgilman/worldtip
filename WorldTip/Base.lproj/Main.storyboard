@@ -274,6 +274,7 @@
                         <outlet property="generousTxt" destination="GIS-BP-zJE" id="rjw-KD-62u"/>
                         <outlet property="goodTxt" destination="iq2-ut-gvz" id="juV-WS-CbR"/>
                         <outlet property="messageLbl" destination="lht-3M-BXb" id="k7Y-BD-HI3"/>
+                        <outlet property="settingsView" destination="Wps-FJ-8T2" id="7zV-SX-n6C"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zzq-7b-yxe" userLabel="First Responder" sceneMemberID="firstResponder"/>
