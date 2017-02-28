@@ -46,20 +46,14 @@
                                 <rect key="frame" x="16" y="307" width="343" height="50"/>
                                 <subviews>
                                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="FHo-s0-Set">
-                                        <rect key="frame" x="0.0" y="0.0" width="101" height="50"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="25"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="161.5" height="50"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="30"/>
                                         <color key="textColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="zTS-DG-ILw">
-                                        <rect key="frame" x="121" y="0.0" width="101" height="50"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
-                                        <color key="textColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="bRC-UB-704">
-                                        <rect key="frame" x="242" y="0.0" width="101" height="50"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                        <rect key="frame" x="181.5" y="0.0" width="161.5" height="50"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
                                         <color key="textColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -88,6 +82,13 @@
                                     <action selector="calculateTip:" destination="BYZ-38-t0r" eventType="valueChanged" id="8pa-lk-RlH"/>
                                 </connections>
                             </segmentedControl>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fx-100" translatesAutoresizingMaskIntoConstraints="NO" id="POD-Ck-9pN">
+                                <rect key="frame" x="158" y="365" width="58" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="LXT-mo-W1j"/>
+                                    <constraint firstAttribute="width" constant="58" id="t6S-x1-dL9"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -95,6 +96,7 @@
                             <constraint firstItem="POK-Li-yEo" firstAttribute="top" secondItem="BEy-s0-2YL" secondAttribute="bottom" constant="10" id="AF8-aV-EXJ"/>
                             <constraint firstItem="POK-Li-yEo" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="CUe-Ks-0aJ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="POK-Li-yEo" secondAttribute="trailing" id="Dov-f6-mVh"/>
+                            <constraint firstItem="POD-Ck-9pN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="GzL-Mw-rfe"/>
                             <constraint firstAttribute="trailing" secondItem="9hi-ZN-ce5" secondAttribute="trailing" constant="5" id="L78-zf-rqb"/>
                             <constraint firstAttribute="trailing" secondItem="bN4-j0-ehw" secondAttribute="trailing" id="NU5-Kb-OFw"/>
                             <constraint firstAttribute="trailing" secondItem="BEy-s0-2YL" secondAttribute="trailing" constant="20" id="UxM-v2-vul"/>
@@ -106,6 +108,7 @@
                             <constraint firstItem="FiD-mf-bHl" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="5" id="e9y-V3-4BV"/>
                             <constraint firstItem="bN4-j0-ehw" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="kIM-U8-gLW"/>
                             <constraint firstItem="FiD-mf-bHl" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" constant="5" id="nHh-83-meU"/>
+                            <constraint firstItem="POD-Ck-9pN" firstAttribute="top" secondItem="POK-Li-yEo" secondAttribute="bottom" constant="8" id="oCw-p4-0Pp"/>
                             <constraint firstItem="9hi-ZN-ce5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="5" id="ubL-bO-6Yr"/>
                         </constraints>
                     </view>
@@ -122,11 +125,11 @@
                         <outlet property="backgroundImg" destination="bN4-j0-ehw" id="q3k-ob-UI1"/>
                         <outlet property="billLbl" destination="FiD-mf-bHl" id="dxf-xU-0pw"/>
                         <outlet property="countryPicker" destination="9hi-ZN-ce5" id="phm-fc-OAL"/>
+                        <outlet property="fxImg" destination="POD-Ck-9pN" id="Dcb-YB-YfW"/>
                         <outlet property="resultsStackView" destination="POK-Li-yEo" id="Tmq-4P-jFS"/>
                         <outlet property="tipLbl" destination="FHo-s0-Set" id="3tP-o1-7re"/>
                         <outlet property="tipSelector" destination="BEy-s0-2YL" id="cJp-VR-NnI"/>
                         <outlet property="totalLbl" destination="zTS-DG-ILw" id="971-Yf-rl8"/>
-                        <outlet property="totalUSDLbl" destination="bRC-UB-704" id="mSG-rM-Oka"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -302,5 +305,6 @@
     </scenes>
     <resources>
         <image name="USA" width="1200" height="632"/>
+        <image name="fx-100" width="100" height="100"/>
     </resources>
 </document>

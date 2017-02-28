@@ -4,10 +4,10 @@ WorldTip is a tip calculator application for iOS.
 
 Submitted by: William Gilman
 
-Time spent: 24.5 hours spent in total
+Time spent: 25.5 hours spent in total
 
 ## Sceenshot
-<img src='http://i.imgur.com/NV9m4Jq.png' title='Swip Main' width='' alt='Swip Main' />
+<img src='http://i.imgur.com/dsE0bNJ.png' title='Swip Main' width='' alt='Swip Main' />
 
 ## User Stories
 
@@ -36,7 +36,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/mH016vm.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://i.imgur.com/HUwfxl9.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 

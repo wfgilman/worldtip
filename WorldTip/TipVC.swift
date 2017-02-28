@@ -18,8 +18,8 @@ class TipVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     @IBOutlet weak var billLbl: UITextField!
     @IBOutlet weak var tipLbl: UILabel!
     @IBOutlet weak var totalLbl: UILabel!
-    @IBOutlet weak var totalUSDLbl: UILabel!
     @IBOutlet weak var resultsStackView: UIStackView!
+    @IBOutlet weak var fxImg: UIImageView!
     
     var country = [Country]()
     var countryTip = [CountryTip]()
@@ -28,6 +28,7 @@ class TipVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     var currentExchangeRate = [ExchangeRate]()
     let defaults = UserDefaults.standard
     var numberFormatter = NumberFormatter()
+    var totalBill = Double()
     
     var popTip: AMPopTip?
     
@@ -132,10 +133,11 @@ class TipVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
         totalLbl.isUserInteractionEnabled = true
         totalLbl.addGestureRecognizer(totalTap)
         
-        let totalUSDTap = UITapGestureRecognizer(target: self, action: #selector(TipVC.totalUSDTapFunction))
-        totalUSDLbl.isUserInteractionEnabled = true
-        totalUSDLbl.addGestureRecognizer(totalUSDTap)
+        let fxTap = UITapGestureRecognizer(target: self, action: #selector (TipVC.fxTapFunction))
+        fxImg.isUserInteractionEnabled = true
+        fxImg.addGestureRecognizer(fxTap)
         
+        fxImg.isHidden = true
         tipLbl.text = "\(currentCountryTip[0].currencySymbol)"
         totalLbl.text = "\(currentCountryTip[0].currencySymbol)"
         
@@ -143,7 +145,6 @@ class TipVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        print("View is appearing")
         
         let country = defaults.string(forKey: "country")
         let tipOptions = defaults.object(forKey: country!) as! [Double]
@@ -213,6 +214,15 @@ class TipVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
         defaults.set(countryIso3, forKey: "country")
         defaults.synchronize()
         
+        if countryIso3 == "USA" {
+            
+            fxImg.isHidden = true
+            
+        } else {
+            
+            fxImg.isHidden = false
+        }
+        
         calculateTip(nil)
     }
     
@@ -251,21 +261,10 @@ class TipVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
         let tipPct = tipOptions[tipSelector.selectedSegmentIndex]
         let bill = deformatBill(formattedBill: billLbl.text!, currencySymbol: symbol)
         let tip = currentCountryTip[0].calculate(bill: bill, tipPct: tipPct)
-        let total = bill + tip
+        totalBill = bill + tip
         
         tipLbl.text = currencyText(number: tip, currencySymbol: symbol)
-        totalLbl.text = currencyText(number: total, currencySymbol: symbol)
-        
-        if currentCountryTip[0].iso3 == "USA" {
-            
-            totalUSDLbl.text = currencyText(number: total, currencySymbol: symbol)
-            
-        } else {
-            
-            let rate = currentExchangeRate[0].rateToUSD
-            totalUSDLbl.text = currencyText(number: total / rate, currencySymbol: "$")
-            
-        }
+        totalLbl.text = currencyText(number: totalBill, currencySymbol: symbol)
         
         billLbl.placeholder = symbol
     }
@@ -297,23 +296,47 @@ class TipVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
    func tipTapFunction(sender: UIGestureRecognizer) {
-        self.popTip?.showText("Tip in local currency", direction: AMPopTipDirection.down, maxWidth: 100, in: self.resultsStackView, fromFrame: self.tipLbl.frame)
+        self.popTip?.showText("Your Tip!", direction: AMPopTipDirection.down, maxWidth: 75, in: self.resultsStackView, fromFrame: self.tipLbl.frame)
         dismissPopUp(seconds: 1.0)
     }
     
     func totalTapFunction(sender: UIGestureRecognizer) {
-        self.popTip?.showText("Bill Total in local currency", direction: AMPopTipDirection.down, maxWidth: 100, in: self.resultsStackView, fromFrame: self.totalLbl.frame)
-        dismissPopUp(seconds: 1.0)
-    }
-    
-    func totalUSDTapFunction(sender: UIGestureRecognizer) {
-        self.popTip?.showText("Bill Total in USD", direction: AMPopTipDirection.down, maxWidth: 100, in: self.resultsStackView, fromFrame: self.totalUSDLbl.frame)
+        
+        let currentTotalLbl = self.totalLbl.text!
+        let index = currentTotalLbl.index(currentTotalLbl.startIndex, offsetBy: 1)
+        
+        if currentTotalLbl.substring(to: index) == "$" {
+        
+            self.popTip?.showText("Your Total Bill in USD", direction: AMPopTipDirection.down, maxWidth: 75, in: self.resultsStackView, fromFrame: self.totalLbl.frame)
+            
+        } else {
+        
+            self.popTip?.showText("Your Total Bill!", direction: AMPopTipDirection.down, maxWidth: 75, in: self.resultsStackView, fromFrame: self.totalLbl.frame)
+        }
+        
         dismissPopUp(seconds: 1.0)
     }
     
     func dismissPopUp(seconds: Double) {
         DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
             self.popTip?.hide()
+        }
+    }
+    
+    func fxTapFunction(sender: UIGestureRecognizer) {
+        
+        let symbol = currentCountryTip[0].currencySymbol
+        let currentTotalLbl = self.totalLbl.text!
+        let index = currentTotalLbl.index(currentTotalLbl.startIndex, offsetBy: 1)
+        
+        if currentTotalLbl.substring(to: index) == "$" {
+            
+            self.totalLbl.text = currencyText(number: totalBill, currencySymbol: symbol)
+            
+        } else {
+            
+            let rate = currentExchangeRate[0].rateToUSD
+            self.totalLbl.text = currencyText(number: totalBill / rate, currencySymbol: "$")
         }
     }
     
